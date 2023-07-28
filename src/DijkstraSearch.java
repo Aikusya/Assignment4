@@ -26,7 +26,7 @@ public class DijkstraSearch<V> extends Search<V> {
                 continue;
             }
 
-            for (Map.Entry<Vertex<V>, Double> entry : graph.getNeighbors(currentVertex).entrySet()) {
+            for (Map.Entry<Vertex<V>, Double> entry : currentVertex.getAdjacentVertices().entrySet()) {
                 Vertex<V> neighbor = entry.getKey();
                 double weight = entry.getValue();
                 double distance = currentDistance + weight;
@@ -41,4 +41,5 @@ public class DijkstraSearch<V> extends Search<V> {
         return shortestDistances;
     }
 }
+
 

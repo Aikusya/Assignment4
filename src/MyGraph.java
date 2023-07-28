@@ -46,9 +46,19 @@ public class MyGraph<V> {
         return list.keySet();
     }
 
+    public Map<Vertex<V>, Double> getAdjacentVertices(Vertex<V> vertex) {
+        validateVertex(vertex);
+        Map<Vertex<V>, Double> adjacentVertices = new HashMap<>();
+        for (Vertex<V> neighbor : list.getOrDefault(vertex, new LinkedList<>())) {
+            adjacentVertices.put(neighbor, vertex.getAdjacentVertices().get(neighbor));
+        }
+        return adjacentVertices;
+    }
+
     private void validateVertex(Vertex<V> vertex) {
         if (!list.containsKey(vertex)) {
             throw new IllegalArgumentException("Vertex " + vertex + " is out of range");
         }
     }
 }
+
