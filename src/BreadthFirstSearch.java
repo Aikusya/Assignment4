@@ -1,7 +1,5 @@
 import java.util.*;
 
-import java.util.*;
-
 public class BreadthFirstSearch<V> extends Search<V> {
 
     public BreadthFirstSearch(MyGraph<V> graph) {
