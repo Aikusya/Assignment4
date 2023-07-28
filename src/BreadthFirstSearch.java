@@ -1,5 +1,7 @@
 import java.util.*;
 
+import java.util.*;
+
 public class BreadthFirstSearch<V> extends Search<V> {
 
     public BreadthFirstSearch(MyGraph<V> graph) {
@@ -18,7 +20,7 @@ public class BreadthFirstSearch<V> extends Search<V> {
             Vertex<V> currentVertex = queue.poll();
             result.add(currentVertex);
 
-            for (Vertex<V> neighbor : graph.getAdjacentVertices(currentVertex)) {
+            for (Vertex<V> neighbor : graph.getNeighbors(currentVertex)) {
                 if (!visited.contains(neighbor)) {
                     queue.offer(neighbor);
                     visited.add(neighbor);
@@ -29,4 +31,5 @@ public class BreadthFirstSearch<V> extends Search<V> {
         return result;
     }
 }
+
 
