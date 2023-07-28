@@ -60,5 +60,17 @@ public class MyGraph<V> {
             throw new IllegalArgumentException("Vertex " + vertex + " is out of range");
         }
     }
+
+    public void printGraph() {
+        for (Map.Entry<Vertex<V>, List<Vertex<V>>> entry : list.entrySet()) {
+            Vertex<V> vertex = entry.getKey();
+            System.out.print("Vertex " + vertex.getData() + " connected to: ");
+            List<Vertex<V>> neighbors = entry.getValue();
+            for (Vertex<V> neighbor : neighbors) {
+                System.out.print(neighbor.getData() + " ");
+            }
+            System.out.println();
+        }
+    }
 }
 
