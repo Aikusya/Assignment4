@@ -15,10 +15,8 @@ public class MyGraph<V> {
         validateVertex(source);
         validateVertex(destination);
         list.get(source).add(destination);
-        list.get(destination).add(source);
 
         source.addAdjacentVertex(destination, weight);
-        destination.addAdjacentVertex(source, weight);
     }
 
     public void removeEdge(Vertex<V> source, Vertex<V> destination) {
@@ -27,7 +25,6 @@ public class MyGraph<V> {
             return;
         }
         list.get(source).remove(destination);
-        list.get(destination).remove(source);
     }
 
     public boolean hasEdge(Vertex<V> source, Vertex<V> destination) {
